@@ -68,11 +68,23 @@ const deleteSingleTask = async (req, res) => {
     }
 }
 
+//delete all tasks
+
+const deleteAllTasks = async (req , res) => {
+    try {
+        await Task.deleteMany({})
+        res.status(200).json({ message : "All Tasks deleted"})
+    } catch (error) {
+        res.status(500).json({ message : error.message})        
+    }
+}
+
 
 module.exports = {
     getAllTask,
     getSingleTask,
     createNewTask,
     updateSingleTask,
-    deleteSingleTask
+    deleteSingleTask,
+    deleteAllTasks
 }

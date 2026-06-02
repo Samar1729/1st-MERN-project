@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const { getAllTask } = require('../controllers/task.controller')
-const { getSingleTask, createNewTask, updateSingleTask, deleteSingleTask } = require('../controllers/task.controller')
+const { getSingleTask, createNewTask, updateSingleTask, deleteSingleTask , deleteAllTasks } = require('../controllers/task.controller')
 
 
 // getting all the tasks
@@ -18,5 +18,8 @@ router.put('/:id', updateSingleTask)
 
 //delete a task
 router.delete('/:id', deleteSingleTask)
+
+//delete all tasks
+router.delete('/' , deleteAllTasks)
 
 module.exports = router
